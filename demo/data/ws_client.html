@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>WebSocket测试</h1>
+    <script type="text/javascript">
+        var ws = new WebSocket("ws://192.168.11.210:9501");
+        
+        ws.onopen = function (ev) {
+            console.log('WebSocket已连接');
+            ws.send('hello world');
+        };
+
+        ws.onmessage = function (ev) {
+            console.log('message:' + ev.data);
+        };
+
+        ws.onclose = function (ev) {
+            console.log('WebSocket已关闭');
+        };
+
+        ws.onerror = function (ev) {
+            console.log('error:' + ev.data)
+        }
+    </script>
+</body>
+</html>
